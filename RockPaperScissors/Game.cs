@@ -11,5 +11,16 @@ namespace RockPaperScissors
         int score;
         int valuePlayer;
         int valueBot;
+        void Start()
+        {
+
+        }
+        public bool WhoWon()
+        {
+            Random random = new Random();
+            valueBot = random.Next(1,3);
+            Console.WriteLine(valueBot);
+            return valuePlayer == valueBot;
+        }
     }
 }
