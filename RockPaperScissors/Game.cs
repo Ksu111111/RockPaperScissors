@@ -6,10 +6,6 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissors
 {
-    enum GameValue
-    {
-        rock = 1, scissors = 2, paper = 3
-    }
     internal class Game
     {
         int score;
@@ -26,15 +22,18 @@ namespace RockPaperScissors
         void PrintWhoWon()
         {
             Console.Clear();
-            int result = WhoWon();
             if (valuePlayer < 1 || valuePlayer > 3)
                 Console.WriteLine("Вы проиграли, потому что не можете ввести число от 1 до 3");
-            else if (result == 0)
-                Console.WriteLine("Ничья");
-            else if (result == 1)
-                Console.WriteLine("Вы проиграли");
-            else if (result == -1)
-                Console.WriteLine("Вы победили");
+            else
+            {
+                int result = WhoWon();
+                if (result == 0)
+                    Console.WriteLine("Ничья");
+                else if (result == 1)
+                    Console.WriteLine("Вы проиграли");
+                else if (result == -1)
+                    Console.WriteLine("Вы победили"); 
+            }
         }
         public void PrintScore()
         {
