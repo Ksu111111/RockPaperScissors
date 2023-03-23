@@ -21,13 +21,14 @@ namespace RockPaperScissors
             Console.WriteLine("Ваш ход - ");
             int value = Convert.ToInt32(Console.ReadLine());
             if (value < 1 || value > 3)
-                Console.WriteLine();
+                Console.WriteLine("Вы проиграли, потому что не можете ввести число от 1 до 3");
             else if (WhoWon() == 0)
-                Console.WriteLine("");
+                Console.WriteLine("Ничья");
             else if (WhoWon() == 1)
-                Console.WriteLine();
+                Console.WriteLine("Вы проиграли");
             else if (WhoWon() == -1)
-                Console.WriteLine();
+                Console.WriteLine("Вы победили");
+            Console.WriteLine("Счет :" + score);
         }
         // -1 - бот проиграл
         // 0 - ничья
@@ -36,7 +37,19 @@ namespace RockPaperScissors
         {
             Random random = new Random();
             valueBot = random.Next(1,3);
-          
+            if (valueBot == valuePlayer)
+                return 0;
+            if (valuePlayer == 1)
+                if (valueBot == 3)
+                    return 1;
+            if (valuePlayer == 2)
+                if (valueBot == 1)
+                    return 1;
+            if (valuePlayer == 3)
+                if(valueBot == 2)
+                    return 1;
+            score++;
+            return 1;
         }
     }
 }
